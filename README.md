@@ -26,10 +26,11 @@ problematic since it cannot be caught from Python using a `try`/`except` block.
 
 
 ## Minimal Reproducible Example
-This repository contains a simple PyO3-based mixed Python/Rust project providing a 
-minimal example of the error. The `main` function in `python/unsendable_gc/__main__.py` 
-acts as the entry-point for the example, and is throughly commented to explain the 
-error sequence.
+This repository contains a simple PyO3-based mixed Python/Rust project 
+providing a minimal example of the error. The `main` function in 
+[`python/unsendable_gc/__main__.py`](python/unsendable_gc/__main__.py) 
+acts as the entry-point for the example, and is throughly commented to 
+explain the error sequence.
 
 The project may be installed into any Python 3.7+ environment by running `pip install .` 
 from the repository root. The example may then be run to demonstrate the error using 
