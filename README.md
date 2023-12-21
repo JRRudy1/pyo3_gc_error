@@ -2,7 +2,9 @@
 
 This repository provides a minimal reproducible example of an error detected in 
 PyO3's handling of unsendable pyclasses during garbage collection, details the 
-sequence of events leading up to it, and presents a temporary workaround.
+sequence of events leading up to it, and presents a temporary workaround. An 
+associated issue report has been submitted to the PyO3 repository at 
+https://github.com/PyO3/pyo3/issues/3688.
 
 
 ## Table of Contents
@@ -16,7 +18,7 @@ sequence of events leading up to it, and presents a temporary workaround.
 
 
 ## Introduction
-I have discoved an error, or perhaps an undocumented limitation, in the way PyO3 
+I have discovered an error, or perhaps an undocumented limitation, in the way PyO3 
 handles thread-checking for "unsendable" `pyclass` structs being traversed by 
 Python's garbage collector (GC). In particular, this occurs when garbage collection 
 is triggered from a separate thread, and the structs integrate with the GC by 
