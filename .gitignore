@@ -1,0 +1,24 @@
+
+# Cached files
+**/__pycache__/
+**/*.pyc
+
+# Extension modules
+**/*.so
+**/*.pyd
+
+# Build artifacts
+target/
+build/
+dist/
+sdist/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+
+# Environments
+.venv/
+venv/
+env/
