@@ -1,5 +1,9 @@
 # PyO3 Garbage Collection Error - Investigation and Minimal Example
 
+This repository provides a minimal reproducible example of an error detected in 
+PyO3's handling of unsendable pyclasses during garbage collection, details the 
+sequence of events leading up to it, and presents a temporary workaround.
+
 
 ## Table of Contents
 * [Introduction](#introduction)
@@ -19,9 +23,6 @@ is triggered from a separate thread, and the structs integrate with the GC by
 implementing the `__traverse__` magic method (see [Garbage Collector Integration](https://pyo3.rs/v0.19.1/class/protocols.html#garbage-collector-integration) 
 in PyO3's docs). The error (or limitation) results in a hard abort, and is particularly 
 problematic since it cannot be caught from Python using a `try`/`except` block.
-
-This repository provides a minimal reproducible example of the error, details the 
-sequence of events leading up to it, and presents a temporary workaround.
 
 
 ## Minimal Reproducible Example
@@ -71,8 +72,8 @@ hyperlinks  to the relevant PyO3 source code, can be summarized as:
 - [`ThreadCheckerImpl::ensure`](https://github.com/PyO3/pyo3/blob/8bd29722017e51088e97112a8cebd658f61606c4/src/impl_/pyclass.rs#L1048)
 - `assert_eq!(thread::current().id(), self.0, "{} is unsendable, but sent to another thread", type_name)`
 
-See the backtrace generated when running the example, or those in the the 
-`errors/*_traceback.md` files, for the full call sequence leading to the crash. 
+For the full call sequence leading to the crash, see the backtrace generated when 
+running the example or those in the the `errors/*_traceback.md` files. 
 
 
 ## Workaround
