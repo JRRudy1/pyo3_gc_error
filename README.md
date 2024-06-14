@@ -3,8 +3,10 @@
 This repository provides a minimal reproducible example of an error detected in 
 PyO3's handling of unsendable pyclasses during garbage collection, details the 
 sequence of events leading up to it, and presents a temporary workaround. An 
-associated issue report has been submitted to the PyO3 repository at 
-https://github.com/PyO3/pyo3/issues/3688.
+associated issue report was submitted to the PyO3 repository at 
+https://github.com/PyO3/pyo3/issues/3688 and resolved in 
+PR [#3689](https://github.com/PyO3/pyo3/pull/3689) by disabling the garbage 
+collection of unsendable pyclasses when traversed on the wrong thread.
 
 
 ## Table of Contents
